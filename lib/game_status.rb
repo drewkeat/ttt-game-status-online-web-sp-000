@@ -30,3 +30,24 @@ def won?(board)
   return false
 end
 
+def full?(board)
+  return !board.include?(" ")
+end
+
+def draw?(board)
+  return (full?(board) && !won?(board))
+end
+
+def over?(board)
+  if won?(board)
+    return true
+  else
+    return draw?(board)
+  end
+end
+
+def winner(board)
+  if (over?(board) && won?(board))
+    return board[won?(board)[0]]
+  end
+end
